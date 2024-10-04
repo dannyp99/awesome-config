@@ -810,6 +810,8 @@ awful.rules.rules = {
     { rule = { class = "Xfce4-settings-manager" },
           properties = { floating = false } },
 
+    { rule_any = { class = "alacritty", "Alacritty" },
+          properties = { floating = true, opacity = 0.5 } },
 
 
     -- Floating clients.
@@ -973,7 +975,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Applications
 
-awful.spawn.with_shell("/usr/bin/emacs --daemon")
 --awful.spawn.with_shell("killall solaar")
 awful.spawn.with_shell("killall udiskie")
 --awful.spawn.with_shell("~/.config/awesome/setbg") -- Wallpaper Manager, Random Wallpaper
