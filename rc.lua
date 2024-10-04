@@ -76,7 +76,7 @@ local browser           = "brave"
 local editor            = os.getenv("EDITOR") or "nvim"
 local editorgui         = "geany"
 local filemanager       = "pcmanfm"
-local mediaplayer       = "vlc"
+local mediaplayer       = "mpv"
 local scrlocker         = "slock"
 local terminal          = "alacritty"
 
@@ -309,7 +309,7 @@ globalkeys = my_table.join(
         {description = "view previous", group = "tag"}),
 
 
-    awful.key({ modkey },            "b",     function () awful.util.spawn("firefox") end,
+    awful.key({ modkey },            "f",     function () awful.util.spawn("firefox") end,
         {description = "run firefox", group = "launcher"}),
 
     awful.key({ modkey, "Control" },            "b",     function () awful.util.spawn("brave") end,
