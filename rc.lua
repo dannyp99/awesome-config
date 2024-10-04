@@ -180,16 +180,6 @@ fishnvim = "alacritty -e nvim /home/danny/.zshrc"
 
 beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
 
-nanomenu = {
-    {"awesome", wmconfignano},
-    {"bash", bashrcnano},
-    {"starship", starshipnano}, 
-    {"powerarrow-blue", pwbthemenano},
-    {"termite", termitenano},
-    {"alacritty", alacnano},
-    {"fish", fishnano}
-}
-
 vimmenu = {
     {"awesome", wmconfigvim},
     {"bash", bashrcvim},
@@ -200,31 +190,8 @@ vimmenu = {
     {"fish", fishvim}
 }
 
-codemenu = {
-    {"awesome", wmconfigcode},
-    {"bash", bashrccode},
-    {"starship", starshipcode}, 
-    {"powerarrow-blue", pwbthemecode},
-    {"termite", termitecode},
-    {"alacritty", alaccode},
-    {"fish", fishcode}
-}
-
-emacsmenu = {
-    {"awesome", wmconfigema},
-    {"bash", bashrcema},
-    {"starship", starshipema}, 
-    {"powerarrow-blue", pwbthemeema},
-    {"termite", termiteema},
-    {"alacritty", alacema},
-    {"fish", fishema}
-}
-
 configsmenu = {
-    {"nano", nanomenu},
-    {"code", codemenu},
     {"vim", vimmenu},
-    {"emacs", emacsmenu}
 }
 
 
@@ -351,9 +318,6 @@ globalkeys = my_table.join(
     awful.key({ modkey },            "t",     function () awful.util.spawn("xfce4-settings-manager") end,
         {description = "run settings", group = "launcher"}),
    
-    awful.key({ modkey, "Control" },            "v",     function () awful.util.spawn("dolphin") end,
-        {description = "run dolphin", group = "launcher"}),
-
     awful.key({ modkey, "Shift" },            "c",     function () awful.util.spawn("galculator") end,
         {description = "run galculator", group = "launcher"}),
 
@@ -362,9 +326,6 @@ globalkeys = my_table.join(
 
     awful.key({ modkey },            "w",     function () awful.util.spawn("nitrogen") end,
         {description = "run nitrogen", group = "launcher"}),
-
-    awful.key({ modkey },            "q",     function () awful.util.spawn("code") end,
-        {description = "run code", group = "launcher"}),
 
     awful.key({ modkey },            "d",     function () awful.util.spawn("dm-hub") end,
         {description = "run dm-hub", group = "launcher"}),
@@ -375,14 +336,11 @@ globalkeys = my_table.join(
     awful.key({ modkey },            "ä",     function () awful.util.spawn("filelight") end,
         {description = "run filelight", group = "launcher"}),
 
-    awful.key({ modkey },            "ö",     function () awful.util.spawn("alacritty -e htop") end,
-        {description = "run htop in alacritty", group = "launcher"}),
+    awful.key({ modkey },            "o",     function () awful.util.spawn("alacritty -e btop") end,
+        {description = "run btop in alacritty", group = "launcher"}),
 
     awful.key({ modkey, "Control" },            "ö",     function () awful.util.spawn("alacritty -e gtop") end,
         {description = "run gtop in alacritty", group = "launcher"}),
-
-    awful.key({ modkey },            "y",     function () awful.util.spawn("emacsclient -c -a emacs") end,
-        {description = "run emacs", group = "launcher"}),
 
     awful.key({ modkey },            "a",     function () awful.util.spawn("alacritty -e vim") end,
         {description = "run vim in alacritty", group = "launcher"}),
@@ -550,7 +508,7 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "hotkeys"}),
-    awful.key({ modkey, "Shift"   }, "q",  function () awful.spawn.with_shell( '~/.dmenu/prompt "are you sure?" "killall awesome"' ) end,
+    awful.key({ modkey, "Control"   }, "q",  awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -650,7 +608,7 @@ clientkeys = my_table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
     awful.key({ modkey }, "z",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
