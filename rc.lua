@@ -336,7 +336,7 @@ globalkeys = my_table.join(
     awful.key({ modkey },            "ä",     function () awful.util.spawn("filelight") end,
         {description = "run filelight", group = "launcher"}),
 
-    awful.key({ modkey },            "o",     function () awful.util.spawn("alacritty -e btop") end,
+    awful.key({ modkey },            "b",     function () awful.util.spawn("alacritty -e btop") end,
         {description = "run btop in alacritty", group = "launcher"}),
 
     awful.key({ modkey, "Control" },            "ö",     function () awful.util.spawn("alacritty -e gtop") end,
@@ -510,6 +510,8 @@ globalkeys = my_table.join(
               {description = "reload awesome", group = "hotkeys"}),
     awful.key({ modkey, "Control"   }, "q",  awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Control"   }, "l",   function () awful.util.spawn("xfce4-screensaver-command -a") end,
+            {description = "lock screen"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "hotkeys"}),
@@ -828,6 +830,8 @@ client.connect_signal("property::floating", function(c)
     setTitlebar(c, c.floating)
 end)
 
+local screensaver = awful.util.spawn_with_shell("xfce4-screensaver &")
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     setTitlebar(c, c.floating or c.first_tag.layout == awful.layout.suit.floating)
@@ -840,6 +844,9 @@ client.connect_signal("manage", function (c)
       and not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
+    end
+    if c.type == "desktop" then
+        screensaver()
     end
 end)
 
