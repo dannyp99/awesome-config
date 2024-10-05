@@ -14,6 +14,12 @@ I am also using a custom compositor for handling some transparency and transitio
 Arch: `picom`
 All else: `compton`
 
+### Other
+
+- `vicious` -> for [awesome widgets](https://archlinux.org/packages/extra/any/vicious/)
+- `nitrogen` -> for wallpapers
+- `arandr` -> for configuring displays in awesome
+
 ## Customizations
 
 Favorite Wallpapers [HERE](https://www.artstation.com/caldermoore)
