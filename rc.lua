@@ -309,9 +309,6 @@ globalkeys = my_table.join(
         {description = "view previous", group = "tag"}),
 
 
-    awful.key({ modkey, "Control" },            "f",     function () awful.util.spawn("firefox") end,
-        {description = "run firefox", group = "launcher"}),
-
     awful.key({ modkey, "Control" },            "b",     function () awful.util.spawn("brave") end,
         {description = "run brave", group = "launcher"}),
 
@@ -320,6 +317,12 @@ globalkeys = my_table.join(
    
     awful.key({ modkey, "Shift" },            "c",     function () awful.util.spawn("galculator") end,
         {description = "run galculator", group = "launcher"}),
+
+    awful.key({ modkey, "Control" },            "d",     function () awful.util.spawn("discord") end,
+        {description = "run discord", group = "launcher"}),
+
+    awful.key({ modkey, "Control" },            "f",     function () awful.util.spawn("firefox") end,
+        {description = "run firefox", group = "launcher"}),
 
     awful.key({ modkey },            "v",     function () awful.util.spawn("pcmanfm") end,
         {description = "run pcmanfm", group = "launcher"}),
@@ -511,7 +514,7 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Control"   }, "q",  awesome.quit,
               {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey, "Control"   }, "l",   function () awful.util.spawn("xfce4-screensaver-command -a") end,
-            {description = "lock screen"}),
+            {description = "lock screen", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "hotkeys"}),
