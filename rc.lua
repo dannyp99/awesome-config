@@ -309,7 +309,7 @@ globalkeys = my_table.join(
         {description = "view previous", group = "tag"}),
 
 
-    awful.key({ modkey },            "f",     function () awful.util.spawn("firefox") end,
+    awful.key({ modkey, "Control" },            "f",     function () awful.util.spawn("firefox") end,
         {description = "run firefox", group = "launcher"}),
 
     awful.key({ modkey, "Control" },            "b",     function () awful.util.spawn("brave") end,
